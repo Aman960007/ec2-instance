@@ -34,7 +34,7 @@ jobs:
           git config --global user.name 'Aman960007'
           git config --global user.email 'Aman960007@users.noreply.github.com'
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
-          git clone https://github.com/Aman960007/ec2-instance.git
+          git clone git@github.com:Aman960007/ec2-instance.git
           ls 
           ls -larth
           tar -czvf ec2-instance.tar.gz -C ec2-instance .
