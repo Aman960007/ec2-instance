@@ -21,7 +21,6 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Upload Zipped Directory to S3
-        # You may pin to the exact commit or the version.
-        # uses: abdulawal39/zipped-repo-s3-upload@71948a84cadf991c9f1d8e6fb3ed8fd0e9aedb42
-        uses: abdulawal39/zipped-repo-s3-upload@1.0.0
+      - uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r dir.zip dir
