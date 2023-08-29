@@ -21,12 +21,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Zip Deploy
+      - name: Upload Zipped Directory to S3
         # You may pin to the exact commit or the version.
-        # uses: mkyai/zip-deploy@251aed0fae5df741e8ed2dca9ae94d54b7273864
-        uses: mkyai/zip-deploy@v1.0.7
-        with:
-          # Deployment webhook to handle @code.zip file
-          webhook: # optional
-          # Webhook secret for request verification
-          secret: # optional
+        # uses: abdulawal39/zipped-repo-s3-upload@71948a84cadf991c9f1d8e6fb3ed8fd0e9aedb42
+        uses: abdulawal39/zipped-repo-s3-upload@1.0.0
