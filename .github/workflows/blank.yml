@@ -25,3 +25,9 @@ jobs:
           cd ../ # I added this
           rm -rf ec2-instance.zip
           zip -r ec2-instance.zip ec2-instance -x ".git/*" ".github/*"
+      - name: Commit and push
+        uses: EndBug/add-and-commit@v7
+        with:
+          add: '["folder.zip"]'
+          message: 'My commit message'
+          push: true   
