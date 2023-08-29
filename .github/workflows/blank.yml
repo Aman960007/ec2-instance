@@ -28,15 +28,7 @@ jobs:
           S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
         run: |
           cd ../ # I added this
-          ls
-          ls -lrth
           rm -rf ec2-instance.zip
-          git config --global user.name 'Aman960007'
-          git config --global user.email 'Aman960007@users.noreply.github.com'
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
-          git clone git@github.com:Aman960007/ec2-instance.git
-          ls 
-          ls -larth
-          tar -czvf ec2-instance.tar.gz -C ec2-instance .
+          tar -cvf ec2-instance.tar.gz -C ec2-instance .
           aws s3 cp ec2-instance.tar.gz s3://my-test-artifact-001/ec2-instance.tar.gz 
-      
+        shell: bash      
