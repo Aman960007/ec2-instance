@@ -28,7 +28,9 @@ jobs:
           S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
         run: |
           cd ../ # I added this
+          ls
           rm -rf ec2-instance.zip
+          ls
           tar -xvzf ec2-instance.tar.gz ec2-instance/  
           aws s3 cp ec2-instance.tar.gz s3://my-test-artifact-001/ec2-instance.tar.gz 
       
