@@ -33,6 +33,6 @@ jobs:
           pwd
           cd ..
           ls -lrth
-          tar -czvf ec2-instance.tar.gz ec2-instance/main.tf 
+          tar -czvf ec2-instance.tar.gz 
           aws s3 cp ec2-instance.tar.gz s3://my-test-artifact-001/ec2-instance.tar.gz 
         shell: bash      
