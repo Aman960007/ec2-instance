@@ -8,4 +8,18 @@ module "ec2" {
 }
 
 
+variable "instance_type" {
+  description = "Name of the instance"
+  type = string
+  default = ""
+}
+
+variable "ami" {
+  description = "name of the ami"
+  type = string
+  default = ""
+}
+
+instance_type="t2.micro"
+ami="ami-08a52ddb321b32a8c"
 
