@@ -20,7 +20,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       - name: Compress action step
         uses: a7ul/tar-action@v1.1.0
         id: compress
