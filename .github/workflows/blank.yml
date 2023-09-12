@@ -20,19 +20,19 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@main
-      - name: Compress action step
-        uses: a7ul/tar-action@v1.1.0
-        id: compress
+      - uses: actions/checkout@v3
         with:
-          command: c
-          cwd: ./test
-          files: | 
-            ./toCompress
-          outPath: yolo.tar.gz
+          sparse-checkout: .
+      - name: Zip Folder
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
           S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
-  
+        run: |
+          pwd
+          cd ..
+          ls -lrth
+          tar -cvf ec2-instance.tar.gz -C ec2-instance .
+          aws s3 cp ec2-instance.tar.gz s3://my-test-artifact-001/ec2-instance.tar.gz 
+        shell: bash
