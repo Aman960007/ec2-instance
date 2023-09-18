@@ -31,8 +31,7 @@ jobs:
           S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
         run: |
           pwd
-          cd ..
-          ls -lrth
+          ls
           tar -cvf routinglayer.tar.gz README.md -C apigateway/  -C dynamodb/  hello_lambda.py  hello_lambda.zip  infra-env.tfvars  -C lambda/  main.tf  outputs.tf  -C roles/  variables.tf
           aws s3 cp routinglayer.tar.gz s3://test122353536/routinglayer.tar.gz 
         shell: bash
