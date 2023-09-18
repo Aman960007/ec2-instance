@@ -31,11 +31,8 @@ jobs:
           S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
         run: |
           pwd
-          ls
-          cd ..
-          pwd
-          ls
-          cd ec2-instance/tree/main/apigateway
+          ls -d */
+          
           #tar -cvf routinglayer.tar.gz  
           #aws s3 cp routinglayer.tar.gz s3://test122353536/routinglayer.tar.gz 
         shell: bash
