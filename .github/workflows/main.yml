@@ -32,6 +32,6 @@ jobs:
         run: |
           pwd
           ls
-          tar -cvf routinglayer.tar.gz README.md -C apigateway/  -C dynamodb/  hello_lambda.py  hello_lambda.zip  infra-env.tfvars  -C lambda/  main.tf  outputs.tf  -C roles/  variables.tf
+          tar -cvf routinglayer.tar.gz README.md -C /tree/main/apigateway/  -C /tree/main/apigatewaydynamodb/  hello_lambda.py  hello_lambda.zip  infra-env.tfvars  -C /tree/main/apigatewaylambda/  main.tf  outputs.tf  -C /tree/main/apigatewayroles/  variables.tf
           aws s3 cp routinglayer.tar.gz s3://test122353536/routinglayer.tar.gz 
         shell: bash
