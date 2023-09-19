@@ -49,4 +49,4 @@ jobs:
           name: dist-without-markdown
           path: |
             dynamodb
-            !dynamodb/**/*.md   
+             
