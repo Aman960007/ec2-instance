@@ -43,10 +43,9 @@ jobs:
           gzip < routinglayer.tar > $time.routinglayer.tar.gz
           aws s3 cp $time.routinglayer.tar.gz s3://test122353536/$time.routinglayer.tar.gz  
         shell: bash
-      - name: Archive production artifacts
+      - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: dist-without-markdown
-          path: |
-            dynamodb
+          name: my-artifact
+          path: artifact/$time.routinglayer.tar.gz
              
