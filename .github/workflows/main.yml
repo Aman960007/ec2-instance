@@ -34,13 +34,6 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
           S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist-without-markdown
-          path: |
-            dynamodb
-            !dynamodb/**/*.md
         run: |
           pwd
           cd ..
@@ -50,3 +43,10 @@ jobs:
           gzip < routinglayer.tar > $time.routinglayer.tar.gz
           aws s3 cp $time.routinglayer.tar.gz s3://test122353536/$time.routinglayer.tar.gz  
         shell: bash
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-without-markdown
+          path: |
+            dynamodb
+            !dynamodb/**/*.md   
