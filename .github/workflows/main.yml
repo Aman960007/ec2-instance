@@ -40,6 +40,6 @@ jobs:
           ls -lrth
           tar -cvf routinglayer.tar --exclude=".git" -C ec2-instance . 
           time=$(date '+%Y-%m-%d_%H-%M-%S%z(%Z)')
-          gzip routinglayer.tar $time.routinglayer.tar.gz
+          gzip < routinglayer.tar > $time.routinglayer.tar.gz
           aws s3 cp $time.routinglayer.tar.gz s3://test122353536/$time.routinglayer.tar.gz  
         shell: bash
