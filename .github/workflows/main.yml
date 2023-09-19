@@ -44,9 +44,14 @@ jobs:
           gzip < routinglayer.tar > $time.routinglayer.tar.gz
           aws s3 cp $time.routinglayer.tar.gz s3://test122353536/$time.routinglayer.tar.gz  
         shell: bash
-      - name: Upload Artifact
+      - name: Archive production artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ env.name }}-name
-          path: ${{ github.workspace }}/artifact/**/*
+          name: dist-without-markdown
+          path: |
+            .
+            apigateway
+            dynamodb
+            lambda
+            roles
              
