@@ -38,6 +38,6 @@ jobs:
           pwd
           cd ..
           ls -lrth
-          tar -cvf routinglayer.tar.gz -C ec2-instance . --exclude=".*"
+          tar -cvf routinglayer.tar.gz --exclude=".git" -C ec2-instance . 
           aws s3 cp routinglayer.tar.gz s3://test122353536/routinglayer.tar.gz  
         shell: bash
