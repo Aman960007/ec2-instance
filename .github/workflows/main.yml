@@ -35,6 +35,7 @@ jobs:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
         run: |
+          mkdir -p ${{ github.workspace }}/artifact
           pwd
           cd ..
           ls -lrth
@@ -46,6 +47,6 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: my-artifact
-          path: artifact/$time.routinglayer.tar.gz
+          name: ${{ env.name }}-name
+          path: ${{ github.workspace }}/artifact/**/*
              
